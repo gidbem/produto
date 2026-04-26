@@ -4,21 +4,33 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-        <Text style={styles.textoproduto}>Novo Produto</Text>
-        <Text>Preencha os dados do inventário</Text>
+      <Text style={styles.textoproduto}>Novo Produto</Text>
+      <Text>Preencha os dados do inventário</Text>
 
       <Text style={styles.textoproduto2}>Nome do produto</Text>
+      <TextInput style={styles.nomeproduto} />
 
-        <TextInput style={styles.nomeproduto}
-        />
-      
-      <Text style={styles.textopreco}>Preço(R$)</Text>
+      <View style={styles.linha}>
 
-        <TextInput style={styles.nomepreco}
-        />
-      
-        
+        <View>
+          <Text style={styles.textopreco}>Preço(R$)</Text>
+          <TextInput style={styles.nomepreco} keyboardType="numeric" />
+        </View>
 
+        <View>
+          <Text style={styles.textoestoque}>Estoque</Text>
+          <TextInput style={styles.nomeestoque} keyboardType="numeric" />
+        </View>
+
+      </View>
+
+      <View>
+      <Text style={styles.textocodigo}>#Código Identificador</Text>
+      <TextInput style={styles.nomecodigo}/>
+      </View>
+
+    <View style={styles.botaoproduto}>
+      <Button title='Gravar Produto'/></View>  
     </View>
   );
 }
@@ -28,7 +40,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-
   },
   textoproduto: {
     color: 'black',
@@ -38,12 +49,10 @@ const styles = StyleSheet.create({
   },
   nomeproduto: {
     marginTop: 4,
-    marginRight: 10,
     width: 300,
     height: 40,
     borderWidth: 2,
     borderRadius: 9
-
   },
   textoproduto2: {
     fontSize: 16,
@@ -54,15 +63,48 @@ const styles = StyleSheet.create({
   textopreco: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginRight: 230,
     marginTop: 10
   },
   nomepreco: {
     marginTop: 4,
-    marginRight: 190,
+    width: 170,
+    height: 40,
+    borderWidth: 2,
+    borderRadius: 9
+  },
+  textoestoque: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginTop: 10
+  },
+  nomeestoque: {
+    marginTop: 4,
     width: 120,
     height: 40,
     borderWidth: 2,
     borderRadius: 9
+  },
+  textocodigo: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginTop: 10,
+    marginRight: 100
+  },
+  nomecodigo: {
+    marginTop: 4,
+    width: 300,
+    height: 40,
+    borderWidth: 2,
+    borderRadius: 9
+  },
+  linha: {
+    flexDirection: 'row',
+    gap: 12
+  },
+  botaoproduto: {
+    width: 300,
+    marginTop: 30,
+    borderRadius: 9,
+    overflow: 'hidden'
   }
 });
