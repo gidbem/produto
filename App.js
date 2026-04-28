@@ -26,6 +26,18 @@ function gravarProduto() {
     setErronome('');
   }
 
+  function validarCodigo(codigo, estoque) {
+    const match = codigo.match(/(\d)(\d)(\d)(\d)$/);
+      if (!match) return false;
+
+      const soma = parseInt(match[1]) + 
+                   parseInt(match[2]) + 
+                   parseInt(match[3]) + 
+                   parseInt(match[4]);
+
+        return soma === Number(estoque);
+}
+
   if (preco === '') {
     setErropreco('Campo obrigatório!');
     valido = false;
@@ -52,15 +64,18 @@ function gravarProduto() {
   } else if (!/^[a-zA-Z]{3}\d{4}$/.test(codigo)) {
     setErrocodigo('Código deve ter 3 letras e 4 números! Ex: ABC1234');
     valido = false;
+  } else if (!validarCodigo(codigo, estoque)) {
+  setErrocodigo('A soma do código identificador deve ser igual ao disponível no estoque');
+  valido = false;
   } else {
-    setErrocodigo('');
-  }
+  setErrocodigo('');
 
   if (valido) {
-    window.alert('Sucesso, produto gravado com sucesso!');
+    alert('Sucesso, produto gravado com sucesso!');
+    }
   }
 }
-  
+
 return (
     <View style={styles.container}>
 
